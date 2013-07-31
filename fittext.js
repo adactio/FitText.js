@@ -30,6 +30,8 @@
                 var compressor = kompressor || 1,
 
                     resizer = function () {
+                        // Using a for-loop with if-else construction is *slightly* faster (max 3%),
+                        // but Math.max() is easier to read and maintain [http://jsperf.com/math-max-vs-if-else]
                         el.style.fontSize = Math.max(Math.min(el.clientWidth / (compressor * 10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)) + 'px';
                     };
 
@@ -41,10 +43,11 @@
                 // and remove addEvent function (or use original jQuery version)
                 addEvent(window, 'resize', resizer);
             },
-            i;
+            i,
+            numElements = el.length;
 
-        if (el.length) {
-            for (i = 0; i < el.length; i += 1) {
+        if (numElements) {
+            for (i = 0; i < el.numElements; i += 1) {
                 fit(el[i]);
             }
         } else {
