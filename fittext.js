@@ -9,7 +9,7 @@
 *
 * Date: Tue Aug 09 2011 10:45:54 GMT+0200 (CEST)
 */
-(function (w) {
+(function (window) {
     "use strict";
 
     var addEvent = function (el, type, fn) {
@@ -20,7 +20,7 @@
             }
         };
 
-    w.fitText = function (el, kompressor) {
+    window.fitText = function (el, kompressor) {
         var settings = {
                 'minFontSize' : -1 / 0,
                 'maxFontSize' : 1 / 0
@@ -57,4 +57,4 @@
         // return set of elements
         return el;
     };
-}(window));
+}(this));
