@@ -47,7 +47,7 @@
             numElements = el.length;
 
         if (numElements) {
-            for (i = 0; i < el.numElements; i += 1) {
+            for (i = 0; i < numElements; i += 1) {
                 fit(el[i]);
             }
         } else {
